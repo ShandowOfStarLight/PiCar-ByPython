@@ -3,10 +3,13 @@ import pygame
 from pigo import *
 
 #use L298N to drive the car
+#L298N 驱动
 car = L298N_4(15,16,18,22,40,38,37,36,35,33,32,31)
 car.pwmstart()
 
 #joystickhats define
+#手柄按键定义
+
 UP = (0,1)
 DOWN = (0,-1)
 LEFT = (-1,0)
@@ -14,6 +17,7 @@ RIGHT = (1,0)
 STOP = (0,0)
 
 # Define some colors
+# 颜色定义
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
 
