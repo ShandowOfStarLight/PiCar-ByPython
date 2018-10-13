@@ -1,54 +1,69 @@
-from pigo import *
+from . import pigo
 from django.shortcuts import render
 from django.http import HttpResponse
 import RPi.GPIO as gpio
+
+car = pigo.L298N_4(15,16,18,22,40,38,37,36,35,33,32,31)
+
 def index(request):
-	car = L298N_4(15,16,18,22,40,38,37,36,35,33,32,31)
 	car.pwmstart()
 	return HttpResponse("<h1>Picar Interface</h1>")
 
-def goforward():
+def goforward(request):
 	car.goforward()
+	return HttpResponse("<h1>goforward</h1>")
 
-def goback():
+def goback(request):
 	car.goback()
+	return HttpResponse("<h1>goback</h1>")
 
-def turnleft():
+def turnleft(request):
 	car.turnleft()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def turnright():
+def turnright(request):
 	car.turnright()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def leftforwardpowerup():
+def leftforwardpowerup(request):
 	car.leftforwardpowerup()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def leftforwardpowerdown():
+def leftforwardpowerdown(request):
 	car.leftforwardpowerdown()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def rightforwardpowerup():
+def rightforwardpowerup(request):
 	car.rightforwardpowerup()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def rightforwardpowerdown():
+def rightforwardpowerdown(request):
 	car.rightforwardpowerdown()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def rightbackpowerup():
+def rightbackpowerup(request):
 	car.rightbackpowerup()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def	rightbackpowerdown():
+def	rightbackpowerdown(request):
 	car.rightbackpowerdown()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def leftbackpowerup():
+def leftbackpowerup(request):
 	car.leftbackpowerup()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def leftbackpowerdown():
+def leftbackpowerdown(request):
 	car.leftbackpowerdown()
+	return HttpResponse("<h1>Picar Interface</h1>")
 
-def stop():
+def stop(request):
 	car.stop()
+	return HttpResponse("<h1>Picar stop</h1>")
 
-def poweroff():
+def poweroff(request):
 	gpio.cleanup()
+	return HttpResponse("<h1>Picar poweroff</h1>")
 
-def getspeed():
-	lf, lb, rf, rb = car.showspeed()
-	return HttpResponse("<h3>now speed is: {0},{1},{2},{3}</h3>".format(lf,lb,rf,rb))
+def getspeed(request):
+	return HttpResponse("<h3>now speed is:"+car.showspeed()+"</h3>")

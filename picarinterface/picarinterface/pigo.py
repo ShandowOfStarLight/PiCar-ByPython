@@ -163,8 +163,9 @@ class L298N_4(object):
         gpio.output(self.in7, gpio.LOW)
         gpio.output(self.in8, gpio.LOW)
     def showspeed(self):
-    #    print ("{0}  {1}  {2}  {3} \n").format(self.speedforwardleft,self.speedbackleft,self.speedforwardright,self.speedbackright)
-    return self.speedforwardleft,self.speedbackleft,self.speedforwardright,self.speedbackright
+        message = ("{0}  {1}  {2}  {3} \n").format(self.speedforwardleft,self.speedbackleft,self.speedforwardright,self.speedbackright)
+        return message
+
     def leftforwardpowerup(self, pu=5):
         if self.speedforwardleft < 100:
             self.speedforwardleft = self.speedforwardleft + pu
