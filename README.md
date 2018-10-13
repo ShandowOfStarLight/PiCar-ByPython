@@ -7,3 +7,7 @@
 
 ps2x手柄接收头插好，如无usb接口可买个转接头。
 ssh连接运行 python testps2x.py
+
+----这样好像没啥用处-----
+
+Django一波走起
